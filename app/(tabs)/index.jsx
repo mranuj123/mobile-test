@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, Pressable } from 'react-native'
 
 import iceCoffeeImg from '@/assets/images/iced-coffee.png'
 import React from 'react'
+import { Link } from 'expo-router'
 
 const app = () => {
   return (
@@ -10,7 +11,13 @@ const app = () => {
       source={iceCoffeeImg}
       style={styles.img}
       >
-      <Text style={styles.text}>Coffe Shop</Text>
+      <Text style={styles.title}>Coffe Shop</Text>
+
+      <Link style={{marginHorizontal:'auto'}} href="/contact" asChild>
+      <Pressable style={styles.button}>
+        <Text style={styles.buttonText}>Contact Us</Text>
+      </Pressable>
+      </Link>
 
         </ImageBackground>
     </View>
@@ -33,12 +40,37 @@ const styles= StyleSheet.create({
     flex:1
 
   },
-  text:{
+  title:{
     color:'white',
     fontSize:42,
     fontWeight:'bold',
     textAlign:"center",
+    backgroundColor:'rgba(0,0,0,0.5)',
+    marginBottom:120
+  },
+  link:{
+    color:'white',
+    fontSize:42,
+    fontWeight:'bold',
+    textAlign:"center",
+    textDecorationLine:'underline',
+    padding:4,
     backgroundColor:'rgba(0,0,0,0.5)'
-  }
-  
+  },
+  button:{
+    height:60,
+    borderRadius:20,
+    justifyContent:'center',
+    backgroundColor:'rgba(0,0,0,0.75)',
+    padding:6
+  },
+  buttonText:{
+    color:'white',
+    fontSize:16,
+    fontWeight:'bold',
+    textAlign:"center",
+    padding:4,
+    backgroundColor:'rgba(0,0,0,0.5)'
+  },
+
 })
